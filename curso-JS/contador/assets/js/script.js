@@ -1,12 +1,18 @@
-var currentNumberWrapper = document.getElementById("currentNumber");
-var currentNumber = 0;
+let count = 0;
 
-function increment() {
-    currentNumber ++;
-    currentNumberWrapper.innerHTML = currentNumber;
-}
+const currentNumber = document.querySelector("#currentNumber");
+const buttons = document.querySelectorAll(".btn");
 
-function decrement() {
-    currentNumber --;
-    currentNumberWrapper.innerHTML = currentNumber;
-}
+buttons.forEach(function (btn){
+    btn.addEventListener ("click", function(e){
+        const styles = e.currentTarget.classList;
+        if (styles.contains("subtrair")){
+            count--;
+        }
+
+        else {
+            count++;
+        }
+        currentNumber.textContent = count;
+    });
+});
